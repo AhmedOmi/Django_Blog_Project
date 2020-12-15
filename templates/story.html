@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{% block title %}Storys{% endblock %}
+{% block content %}
+<!-- Home Content -->
+
+    <div id="content" class="site-content">
+
+            <div class="full-screen-scroll">
+
+                <ul id="cbp-bislideshow" class="cbp-bislideshow scroll">
+                    {% for i in articles %}
+                    <li>
+                        {% if i.Photo %}
+                        <img src="{{ i.Photo.url}}" style="width: 100%; height: 100%">
+                        {% endif %}
+
+                        <article class="entry-holder">
+                            <h2 class="entry-title">
+                                <a href="{{ i.id }}">{{ i.Name }}</a>
+                            </h2>
+                            <div class="info-holder">
+                                <div class="cat-links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">{{ i.Author }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="entry-date published">{{ i.Company }}</div>
+                                <div class="entry-date published">{{ i.Created_on }}</div>
+                            </div>
+                            <div class="excerpt">Now when I had mastered the language of this water and had come to know every trifling feature that bordered the great river as familiarly as I knew the letters of the alphabet, I had made a valuable acquisition. &nbsp; I still keep in mind a certain wonderful sunset which I witnessed when and steamboating<a class="read-more" href="single.html"></a></div>
+                            <div class="clear"></div>
+                        </article>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+
+
+{% endblock%}

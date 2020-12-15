@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% for i in articles %}
+{% if i.id == articles|length  %}
+
+    <!-- Home Content -->
+    <div id="content" class="site-content">
+        <div id="blog-wrapper">
+            <div class="blog-holder center-relative">
+                <article id="post-1" class="blog-item-holder featured-post">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <div class="cat-links">
+                                <ul>
+                                    <li>
+                                        <a href="#">{{ i.Author }}  <h4>{{ i.id }}</h4></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ i.Created_on }}</div>
+                            <h2 class="entry-title">
+                                <a href="#">{{ i.Name }}</a>
+                            </h2>
+                            <ul style="font-size: 15px; text-align: center; display: inline">
+                                <li><a href="{{ i.Linkedin }}">Linkedin</a></li>
+                                <li><p>{{ i.Email }}</p></li>
+                                <li style="color: black; font-weight: bold; color: #D8588C; font-family: 'Montserrat', sans-serif, Arial; font-size: 18px;">{{ i.Company }}</li>
+                                <br>
+                            </ul>
+                            <div class="excerpt">
+                                <p>{{ i.Text }}</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="featured-image-holder">
+            <div class="featured-post-image">
+                {% if i.Photo %}
+                    <img src="{{ i.Photo.url }}" style="height: auto; width: 100%;">
+                    {% endif %}
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+{% endif %}
+{% endfor %}
+
+{% endblock %}

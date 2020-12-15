@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<p>hello world</p>
+    <!-- Home Content -->
+    <div id="content" class="site-content">
+        <div id="blog-wrapper">
+            <div class="blog-holder center-relative">
+                <article id="post-1" class="blog-item-holder featured-post">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <div class="cat-links">
+                                <ul>
+                                    <li>
+                                        <a href="#">{{ object.Author }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ object.Created_on }}</div>
+                            <h2 class="entry-title">
+                                <a href="#">{{ object.Name }}</a>
+                            </h2>
+                            <ul style="font-size: 15px; text-align: center; display: inline">
+                                <li><a href="{{ object.Linkedin }}">Linkedin</a></li>
+                                <li><p>{{ object.Email }}</p></li>
+                                <li style="color: black; font-weight: bold; color: #D8588C; font-family: 'Montserrat', sans-serif, Arial; font-size: 18px;">{{ i.Company }}</li>
+                                <br>
+                            </ul>
+                            <div class="excerpt">
+                                <p>{{ object.Text }}</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="featured-image-holder">
+            <div class="featured-post-image">
+                {% if object.Photo %}
+                    <img src="{{ object.Photo.url }}" style="height: auto; width: 100%;">
+                    {% endif %}
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}
